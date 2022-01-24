@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  EssenceToDoView.swift
 //  EssenceToDo
 //
 //  Created by Serafima Nerush on 1/22/22.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct EssenceToDoView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct EssenceToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        EssenceToDoView()
     }
 }

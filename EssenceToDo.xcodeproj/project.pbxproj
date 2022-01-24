@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		23CA693D279D2AB0001F5D24 /* EssenceToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693C279D2AB0001F5D24 /* EssenceToDoApp.swift */; };
-		23CA693F279D2AB0001F5D24 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693E279D2AB0001F5D24 /* ContentView.swift */; };
+		23CA693F279D2AB0001F5D24 /* EssenceToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693E279D2AB0001F5D24 /* EssenceToDoView.swift */; };
 		23CA6941279D2AB1001F5D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CA6940279D2AB1001F5D24 /* Assets.xcassets */; };
 		23CA6944279D2AB1001F5D24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CA6943279D2AB1001F5D24 /* Preview Assets.xcassets */; };
+		23DF8043279F255500440AEB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8042279F255500440AEB /* ToDo.swift */; };
+		23DF8045279F256400440AEB /* EssenceTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8044279F256400440AEB /* EssenceTodo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23CA6939279D2AB0001F5D24 /* EssenceToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssenceToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CA693C279D2AB0001F5D24 /* EssenceToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceToDoApp.swift; sourceTree = "<group>"; };
-		23CA693E279D2AB0001F5D24 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		23CA693E279D2AB0001F5D24 /* EssenceToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceToDoView.swift; sourceTree = "<group>"; };
 		23CA6940279D2AB1001F5D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23CA6943279D2AB1001F5D24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23DF8042279F255500440AEB /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		23DF8044279F256400440AEB /* EssenceTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceTodo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				23CA693C279D2AB0001F5D24 /* EssenceToDoApp.swift */,
-				23CA693E279D2AB0001F5D24 /* ContentView.swift */,
+				23DF8042279F255500440AEB /* ToDo.swift */,
+				23DF8044279F256400440AEB /* EssenceTodo.swift */,
+				23CA693E279D2AB0001F5D24 /* EssenceToDoView.swift */,
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
 				23CA6942279D2AB1001F5D24 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23CA693F279D2AB0001F5D24 /* ContentView.swift in Sources */,
+				23DF8045279F256400440AEB /* EssenceTodo.swift in Sources */,
+				23DF8043279F255500440AEB /* ToDo.swift in Sources */,
+				23CA693F279D2AB0001F5D24 /* EssenceToDoView.swift in Sources */,
 				23CA693D279D2AB0001F5D24 /* EssenceToDoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
