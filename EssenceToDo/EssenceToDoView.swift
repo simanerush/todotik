@@ -15,12 +15,27 @@ struct EssenceToDoView: View {
         NavigationView {
             List {
                 ForEach(toDoList.contents) { object in
-                    
                     Text(object.content)
                 }
             }
-        }.navigationTitle(toDoList.title)
+            .navigationTitle(toDoList.title)
+            .toolbar {
+                Button {
+                    
+                } label: {
+                    Label("New", systemImage: "plus")
+                }
+            }
+        }
+//        .sheet(isPresented: addSheetIsPresented) {
+//            toDoList.add()
+//        } content: {
+//            <#code#>
+//        }
+
     }
+    
+    @State private var addSheetIsPresented = false
 }
 
 struct EssenceToDoView_Previews: PreviewProvider {
