@@ -10,13 +10,17 @@ import SwiftUI
 class EssenceToDo: ObservableObject {
     
     static func createToDo() -> ToDo {
-        ToDo(contents: [])
+        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 1)], title: "Test To Do")
     }
     
     @Published private var model: ToDo = createToDo()
     
     var contents: Array<ToDo.ToDoObject> {
         return model.contents 
+    }
+    
+    var title: String {
+        return model.title
     }
     
     // MARK: - Intents

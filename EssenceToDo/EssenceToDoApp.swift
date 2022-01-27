@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct EssenceToDoApp: App {
+    let todo = EssenceToDo()
     var body: some Scene {
         WindowGroup {
-            EssenceToDoView()
+            EssenceToDoView(toDoList: todo)
         }
     }
 }

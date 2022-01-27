@@ -11,6 +11,8 @@ struct ToDo {
     
     private(set) var contents: [ToDoObject]
     
+    private(set) var title: String 
+    
     struct ToDoObject: Identifiable {
         var content: String
         let date: Date
