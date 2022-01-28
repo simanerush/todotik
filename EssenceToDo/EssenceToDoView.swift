@@ -21,7 +21,7 @@ struct EssenceToDoView: View {
                         }
                     }
                 }
-            } .navigationTitle(toDoList.title)
+            } .navigationTitle(toDoList.name)
               .toolbar {
                 Button {
                     @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
@@ -56,7 +56,7 @@ struct EssenceToDoView: View {
 
 struct EssenceToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        EssenceToDoView(toDoList: EssenceToDo())
+        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"))
     }
 }
 

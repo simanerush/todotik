@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct ToDo {
+struct ToDo: Codable {
     
     var contents: [ToDoObject]
     
-    private(set) var title: String 
-    
-    struct ToDoObject: Identifiable {
+    struct ToDoObject: Identifiable, Codable {
         var content: String
         let date: Date
         var id: Int

@@ -9,11 +9,38 @@ import SwiftUI
 
 class EssenceToDo: ObservableObject {
     
+    let name: String
+    
     static func createToDo() -> ToDo {
-        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 0)], title: "Test To Do")
+        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 0)])
     }
     
-    @Published private var model: ToDo = createToDo()
+    @Published private var model: ToDo = createToDo() {
+        didSet {
+            storeInUserDefaults()
+        }
+    }
+    
+    private var userDefaultsKey: String {
+        "ToDoList:" + name
+    }
+    
+    private func storeInUserDefaults() {
+        UserDefaults.standard.set(try? JSONEncoder().encode(model), forKey: userDefaultsKey)
+    }
+    
+    private func restoreUserDefaults() {
+        // Decode from stored JSONData
+        if let jsonData = UserDefaults.standard.data(forKey: userDefaultsKey),
+           let decodedToDo = try? JSONDecoder().decode(ToDo.self, from: jsonData) {
+            model = decodedToDo
+        }
+    }
+    
+    init(named name: String) {
+        self.name = name
+        restoreUserDefaults()
+    }
     
     var contents: Array<ToDo.ToDoObject> {
         get {
@@ -21,10 +48,6 @@ class EssenceToDo: ObservableObject {
         } set {
             model.contents = newValue
         }
-    } 
-    
-    var title: String {
-        return model.title
     }
     
     // MARK: - Intents
