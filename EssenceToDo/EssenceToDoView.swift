@@ -45,7 +45,7 @@ struct EssenceToDoView: View {
         }
         
         var contentSection: some View {
-            Section(header: Text("Add To-Do")) {
+            Section(header: Text("New To-Do")) {
                 TextField("Contents", text: $toDoObject.content)
             }
         }
