@@ -10,7 +10,7 @@ import SwiftUI
 class EssenceToDo: ObservableObject {
     
     static func createToDo() -> ToDo {
-        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 1)], title: "Test To Do")
+        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 0)], title: "Test To Do")
     }
     
     @Published private var model: ToDo = createToDo()

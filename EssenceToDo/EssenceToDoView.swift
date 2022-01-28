@@ -15,7 +15,7 @@ struct EssenceToDoView: View {
         NavigationView {
             List {
                 ForEach(toDoList.contents) { object in
-                    NavigationLink(destination: ToDoObjectCreator(toDoObject: $toDoList.contents[0])) {
+                    NavigationLink(destination: ToDoObjectCreator(toDoObject: $toDoList.contents[object.id])) {
                         VStack {
                             Text(object.content)
                         }
