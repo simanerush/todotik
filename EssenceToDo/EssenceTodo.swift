@@ -16,8 +16,12 @@ class EssenceToDo: ObservableObject {
     @Published private var model: ToDo = createToDo()
     
     var contents: Array<ToDo.ToDoObject> {
-        return model.contents 
-    }
+        get {
+            return model.contents
+        } set {
+            model.contents = newValue
+        }
+    } 
     
     var title: String {
         return model.title
@@ -25,8 +29,8 @@ class EssenceToDo: ObservableObject {
     
     // MARK: - Intents
     
-    func add(_ object: ToDo.ToDoObject) {
-        model.add(object)
+    func add(_ object: inout ToDo.ToDoObject) {
+        model.add(&object)
     }
     
     func remove(at index: Int) {

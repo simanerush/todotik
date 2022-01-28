@@ -15,31 +15,48 @@ struct EssenceToDoView: View {
         NavigationView {
             List {
                 ForEach(toDoList.contents) { object in
-                    Text(object.content)
+                    NavigationLink(destination: ToDoObjectCreator(toDoObject: $toDoList.contents[0])) {
+                        VStack {
+                            Text(object.content)
+                        }
+                    }
                 }
-            }
-            .navigationTitle(toDoList.title)
-            .toolbar {
+            } .navigationTitle(toDoList.title)
+              .toolbar {
                 Button {
-                    
+                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
+                    toDoList.add(&newObject)
                 } label: {
                     Label("New", systemImage: "plus")
                 }
             }
         }
-//        .sheet(isPresented: addSheetIsPresented) {
-//            toDoList.add()
-//        } content: {
-//            <#code#>
-//        }
-
+        
     }
     
-    @State private var addSheetIsPresented = false
+    struct ToDoObjectCreator: View {
+        
+        @Binding var toDoObject: ToDo.ToDoObject
+        
+        var body: some View {
+            Form {
+                contentSection
+            }
+        }
+        
+        var contentSection: some View {
+            Section(header: Text("Add To-Do")) {
+                TextField("Contents", text: $toDoObject.content)
+            }
+        }
+    }
 }
+
+
 
 struct EssenceToDoView_Previews: PreviewProvider {
     static var previews: some View {
         EssenceToDoView(toDoList: EssenceToDo())
     }
 }
+

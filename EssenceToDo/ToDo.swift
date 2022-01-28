@@ -9,17 +9,18 @@ import Foundation
 
 struct ToDo {
     
-    private(set) var contents: [ToDoObject]
+    var contents: [ToDoObject]
     
     private(set) var title: String 
     
     struct ToDoObject: Identifiable {
         var content: String
         let date: Date
-        let id: Int
+        var id: Int
     }
     
-    mutating func add(_ object: ToDoObject) {
+    mutating func add(_ object: inout ToDoObject) {
+        object.id = contents.count
         contents.append(object)
     }
     
