@@ -16,8 +16,9 @@ struct EssenceToDoView: View {
             List {
                 ForEach(toDoList.contents) { object in
                     NavigationLink(destination: ToDoObjectCreator(toDoObject: $toDoList.contents[object.id])) {
-                        VStack {
+                        VStack(alignment: .leading) {
                             Text(object.content)
+                            Text(object.dateFormatted())
                         }
                     }
                 }

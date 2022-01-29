@@ -15,6 +15,10 @@ struct ToDo: Codable {
         var content: String
         let date: Date
         var id: Int
+        
+        func dateFormatted() -> String {
+            return self.date.formatted()
+        }
     }
     
     mutating func add(_ object: inout ToDoObject) {
