@@ -26,10 +26,6 @@ struct ToDo: Codable {
         contents.append(object)
     }
     
-    mutating func remove(at index: Int) {
-        contents.remove(at: index)
-    }
-    
     mutating func edit(object: ToDoObject, newContent: String) {
         let objectIndex = contents.index(matching: object)
         contents[objectIndex!].content = newContent

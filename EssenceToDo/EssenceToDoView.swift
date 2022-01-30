@@ -22,6 +22,9 @@ struct EssenceToDoView: View {
                         }
                     }
                 }
+                .onDelete { indexSet in
+                    toDoList.contents.remove(atOffsets: indexSet)
+                }
             } .navigationTitle(toDoList.name)
               .toolbar {
                 Button {

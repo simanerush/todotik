@@ -55,12 +55,25 @@ class EssenceToDo: ObservableObject {
     func add(_ object: inout ToDo.ToDoObject) {
         model.add(&object)
     }
-    
-    func remove(at index: Int) {
-        model.remove(at: index)
-    }
-    
+//
+//    func remove(at index: Int) {
+//        model.remove(at: index)
+//    }
+//
     func edit(_ object: ToDo.ToDoObject, newContent: String) {
         model.edit(object: object, newContent: newContent)
+    }
+    
+    func object(at index: Int) -> ToDo.ToDoObject {
+        let safeIndex = min(max(index, 0), contents.count - 1)
+        return contents[safeIndex]
+    }
+    
+    @discardableResult
+    func remove(at index: Int) -> Int {
+        if contents.count > 1, contents.indices.contains(index) {
+            contents.remove(at: index)
+        }
+        return index % contents.count
     }
 }
