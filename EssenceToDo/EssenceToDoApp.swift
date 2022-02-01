@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct EssenceToDoApp: App {
-    let todo = EssenceToDo(named: "New To Do")
+    let todo = EssenceToDo(named: "To Do Name")
     var body: some Scene {
         WindowGroup {
             EssenceToDoView(toDoList: todo)

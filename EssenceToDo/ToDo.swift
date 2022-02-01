@@ -13,7 +13,7 @@ struct ToDo: Codable {
     
     struct ToDoObject: Identifiable, Codable {
         var content: String
-        let date: Date
+        var date: Date
         var id: Int
         
         func dateFormatted() -> String {
