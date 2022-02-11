@@ -40,7 +40,7 @@ struct EssenceToDoView: View {
                     Label("New", systemImage: "plus")
                 }
                 .sheet(isPresented: $editing) {
-                    ToDoObjectEditor(toDoObject: Binding($objectToEdit)!)
+                    ToDoObjectEditor(objectToEdit: Binding($objectToEdit)!)
                 }
 
             }
@@ -50,8 +50,7 @@ struct EssenceToDoView: View {
     
     struct ToDoObjectEditor: View {
         
-        @Binding var toDoObject: ToDo.ToDoObject
-        
+        @Binding var objectToEdit: ToDo.ToDoObject
         
         var body: some View {
             Form {
@@ -70,13 +69,13 @@ struct EssenceToDoView: View {
         
         var nameSection: some View {
             Section(header: Text("New To-Do")) {
-                TextField("Contents", text: $toDoObject.content)
+                TextField("Contents", text: $objectToEdit.content)
             }
         }
         
         var dateSection: some View {
             Section(header: Text("Date Due")) {
-                DatePicker("Date", selection: $toDoObject.date, displayedComponents: [.date])
+                DatePicker("Date", selection: $objectToEdit.date, displayedComponents: [.date])
             }
         }
     }
@@ -86,7 +85,7 @@ struct EssenceToDoView: View {
 
 struct EssenceToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"))
+        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"), objectToEdit: ToDo.ToDoObject(content: "Preview", date: .now, id: 100))
     }
 }
 
