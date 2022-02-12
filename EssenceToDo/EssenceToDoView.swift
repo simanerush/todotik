@@ -11,7 +11,7 @@ struct EssenceToDoView: View {
     
     @ObservedObject var toDoList: EssenceToDo
     
-    @State var objectToEdit: ToDo.ToDoObject = ToDo.ToDoObject(content: "test", date: .now, id: 100)
+    @State var objectToEditIndex: Int = 0
     @State var editing = false
     
     var body: some View {
@@ -23,29 +23,28 @@ struct EssenceToDoView: View {
                         Text(object.dateFormatted())
                     }
                     .onTapGesture {
-                        objectToEdit = object
-                        editing.toggle()
-                        print("Set objectToEdit to \(object)")
-                        print("objectToEdit = \(objectToEdit)")
+                        objectToEditIndex = object.id
+                        editing = true
                     }
                 }
+                
                 .onDelete { indexSet in
                     toDoList.contents.remove(atOffsets: indexSet)
                 }
                 
             } .navigationTitle(toDoList.name)
-              .toolbar {
-                Button {
-                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
-                    toDoList.add(&newObject)
-                } label: {
-                    Label("New", systemImage: "plus")
+                .toolbar {
+                    Button {
+                        @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
+                        toDoList.add(&newObject)
+                    } label: {
+                        Label("New", systemImage: "plus")
+                    }
+                    .sheet(isPresented: $editing) {
+                        ToDoObjectEditor(objectToEdit: $toDoList.contents[objectToEditIndex])
+                    }
+                    
                 }
-                .sheet(isPresented: $editing) {
-                    ToDoObjectEditor(objectToEdit: $objectToEdit)
-                }
-
-            }
         }
         
     }
@@ -65,7 +64,7 @@ struct EssenceToDoView: View {
         
         var nameSection: some View {
             Section(header: Text("New To-Do")) {
-                TextField("Contents", text: $objectToEdit.content, onCommit:  { self.presentationMode.wrappedValue.dismiss()})
+                TextField("Contents", text: $objectToEdit.content, onCommit: { self.presentationMode.wrappedValue.dismiss()})
             }
         }
         
@@ -81,7 +80,7 @@ struct EssenceToDoView: View {
 
 struct EssenceToDoView_Previews: PreviewProvider {
     static var previews: some View {
-        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"), objectToEdit: ToDo.ToDoObject(content: "Preview", date: .now, id: 100))
+        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"))
     }
 }
 
