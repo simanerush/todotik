@@ -15,7 +15,7 @@ struct EssenceToDoView: View {
         NavigationView {
             List {
                 ForEach(toDoList.contents) { object in
-                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $toDoList.contents[object.id])) {
+                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $toDoList.contents[object.id]).navigationBarTitle("", displayMode: .inline)) {
                             VStack(alignment: .leading) {
                                 Text(object.content)
                                 Text(object.dateFormatted())
@@ -43,7 +43,6 @@ struct EssenceToDoView: View {
     struct ToDoObjectEditor: View {
         
         @Binding var objectToEdit: ToDo.ToDoObject
-        @Environment(\.presentationMode) var presentationMode
         
         var body: some View {
             Form {
@@ -55,7 +54,7 @@ struct EssenceToDoView: View {
         
         var nameSection: some View {
             Section(header: Text("New To-Do")) {
-                TextField("Contents", text: $objectToEdit.content, onCommit: { self.presentationMode.wrappedValue.dismiss()})
+                TextField("Contents", text: $objectToEdit.content)
             }
         }
         
