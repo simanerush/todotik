@@ -11,7 +11,7 @@ struct EssenceToDoView: View {
     
     @ObservedObject var toDoList: EssenceToDo
     
-    @State var objectToEdit: ToDo.ToDoObject?
+    @State var objectToEdit: ToDo.ToDoObject = ToDo.ToDoObject(content: "test", date: .now, id: 100)
     @State var editing = false
     
     var body: some View {
@@ -24,7 +24,9 @@ struct EssenceToDoView: View {
                     }
                     .onTapGesture {
                         objectToEdit = object
-                        editing = true
+                        editing.toggle()
+                        print("Set objectToEdit to \(object)")
+                        print("objectToEdit = \(objectToEdit)")
                     }
                 }
                 .onDelete { indexSet in
@@ -40,7 +42,7 @@ struct EssenceToDoView: View {
                     Label("New", systemImage: "plus")
                 }
                 .sheet(isPresented: $editing) {
-                    ToDoObjectEditor(objectToEdit: Binding($objectToEdit)!)
+                    ToDoObjectEditor(objectToEdit: $objectToEdit)
                 }
 
             }
@@ -51,25 +53,19 @@ struct EssenceToDoView: View {
     struct ToDoObjectEditor: View {
         
         @Binding var objectToEdit: ToDo.ToDoObject
+        @Environment(\.presentationMode) var presentationMode
         
         var body: some View {
-            Form {
-                contentSection
-            }
-        }
-        
-        var contentSection: some View {
             Form {
                 nameSection
                 dateSection
             }
-            .frame(width: 500, height: 500, alignment: .center)
             
         }
         
         var nameSection: some View {
             Section(header: Text("New To-Do")) {
-                TextField("Contents", text: $objectToEdit.content)
+                TextField("Contents", text: $objectToEdit.content, onCommit:  { self.presentationMode.wrappedValue.dismiss()})
             }
         }
         
