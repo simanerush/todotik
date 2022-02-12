@@ -11,8 +11,6 @@ struct EssenceToDoView: View {
     
     @ObservedObject var toDoList: EssenceToDo
     
-    @State private var editMode: EditMode = .inactive
-    
     var body: some View {
         NavigationView {
             List {
@@ -22,7 +20,6 @@ struct EssenceToDoView: View {
                                 Text(object.content)
                                 Text(object.dateFormatted())
                         }
-                        .gesture(editMode == .active ? tap : nil)
                     }
                 }
                 
@@ -38,8 +35,6 @@ struct EssenceToDoView: View {
                     } label: {
                         Label("New", systemImage: "plus")
                     }
-                    
-                    
                 }
         }
         
@@ -69,10 +64,6 @@ struct EssenceToDoView: View {
                 DatePicker("Date", selection: $objectToEdit.date, displayedComponents: [.date])
             }
         }
-    }
-    
-    var tap: some Gesture {
-        TapGesture().onEnded { }
     }
 }
 
