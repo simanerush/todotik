@@ -11,20 +11,18 @@ struct EssenceToDoView: View {
     
     @ObservedObject var toDoList: EssenceToDo
     
-    @State var objectToEditIndex: Int = 0
-    @State var editing = false
+    @State private var editMode: EditMode = .inactive
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(toDoList.contents) { object in
-                    VStack(alignment: .leading) {
-                        Text(object.content)
-                        Text(object.dateFormatted())
-                    }
-                    .onTapGesture {
-                        objectToEditIndex = object.id
-                        editing = true
+                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $toDoList.contents[object.id])) {
+                            VStack(alignment: .leading) {
+                                Text(object.content)
+                                Text(object.dateFormatted())
+                        }
+                        .gesture(editMode == .active ? tap : nil)
                     }
                 }
                 
@@ -40,9 +38,7 @@ struct EssenceToDoView: View {
                     } label: {
                         Label("New", systemImage: "plus")
                     }
-                    .sheet(isPresented: $editing) {
-                        ToDoObjectEditor(objectToEdit: $toDoList.contents[objectToEditIndex])
-                    }
+                    
                     
                 }
         }
@@ -73,6 +69,10 @@ struct EssenceToDoView: View {
                 DatePicker("Date", selection: $objectToEdit.date, displayedComponents: [.date])
             }
         }
+    }
+    
+    var tap: some Gesture {
+        TapGesture().onEnded { }
     }
 }
 
