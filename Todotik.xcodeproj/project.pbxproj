@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23CA6939279D2AB0001F5D24 /* EssenceToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssenceToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23CA6939279D2AB0001F5D24 /* Todotik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todotik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CA693C279D2AB0001F5D24 /* EssenceToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceToDoApp.swift; sourceTree = "<group>"; };
 		23CA693E279D2AB0001F5D24 /* EssenceToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssenceToDoView.swift; sourceTree = "<group>"; };
 		23CA6940279D2AB1001F5D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		23CA6930279D2AB0001F5D24 = {
 			isa = PBXGroup;
 			children = (
-				23CA693B279D2AB0001F5D24 /* EssenceToDo */,
+				23CA693B279D2AB0001F5D24 /* Todotik */,
 				23CA693A279D2AB0001F5D24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,12 +47,12 @@
 		23CA693A279D2AB0001F5D24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23CA6939279D2AB0001F5D24 /* EssenceToDo.app */,
+				23CA6939279D2AB0001F5D24 /* Todotik.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		23CA693B279D2AB0001F5D24 /* EssenceToDo */ = {
+		23CA693B279D2AB0001F5D24 /* Todotik */ = {
 			isa = PBXGroup;
 			children = (
 				23CA693C279D2AB0001F5D24 /* EssenceToDoApp.swift */,
@@ -62,7 +62,7 @@
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
 				23CA6942279D2AB1001F5D24 /* Preview Content */,
 			);
-			path = EssenceToDo;
+			path = Todotik;
 			sourceTree = "<group>";
 		};
 		23CA6942279D2AB1001F5D24 /* Preview Content */ = {
@@ -76,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23CA6938279D2AB0001F5D24 /* EssenceToDo */ = {
+		23CA6938279D2AB0001F5D24 /* Todotik */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23CA6947279D2AB1001F5D24 /* Build configuration list for PBXNativeTarget "EssenceToDo" */;
+			buildConfigurationList = 23CA6947279D2AB1001F5D24 /* Build configuration list for PBXNativeTarget "Todotik" */;
 			buildPhases = (
 				23CA6935279D2AB0001F5D24 /* Sources */,
 				23CA6936279D2AB0001F5D24 /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = EssenceToDo;
+			name = Todotik;
 			productName = EssenceToDo;
-			productReference = 23CA6939279D2AB0001F5D24 /* EssenceToDo.app */;
+			productReference = 23CA6939279D2AB0001F5D24 /* Todotik.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 23CA6934279D2AB0001F5D24 /* Build configuration list for PBXProject "EssenceToDo" */;
+			buildConfigurationList = 23CA6934279D2AB0001F5D24 /* Build configuration list for PBXProject "Todotik" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23CA6938279D2AB0001F5D24 /* EssenceToDo */,
+				23CA6938279D2AB0001F5D24 /* Todotik */,
 			);
 		};
 /* End PBXProject section */
@@ -276,7 +276,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EssenceToDo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Todotik/Preview Content\"";
 				DEVELOPMENT_TEAM = P73F9D2RY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -291,7 +291,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sima.EssenceToDo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Todotik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -306,7 +306,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EssenceToDo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Todotik/Preview Content\"";
 				DEVELOPMENT_TEAM = P73F9D2RY2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -321,7 +321,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sima.EssenceToDo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simanerush.Todotik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -332,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23CA6934279D2AB0001F5D24 /* Build configuration list for PBXProject "EssenceToDo" */ = {
+		23CA6934279D2AB0001F5D24 /* Build configuration list for PBXProject "Todotik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23CA6945279D2AB1001F5D24 /* Debug */,
@@ -341,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23CA6947279D2AB1001F5D24 /* Build configuration list for PBXNativeTarget "EssenceToDo" */ = {
+		23CA6947279D2AB1001F5D24 /* Build configuration list for PBXNativeTarget "Todotik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23CA6948279D2AB1001F5D24 /* Debug */,
