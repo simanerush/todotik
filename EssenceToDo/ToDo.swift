@@ -21,8 +21,19 @@ struct ToDo: Codable {
         }
     }
     
+    private func findMaxIdObject() -> ToDoObject? {
+        return contents.max { $0.id < $1.id }
+    }
+    
     mutating func add(_ object: inout ToDoObject) {
-        object.id = contents.count
+        let maxObject = findMaxIdObject()
+        
+        if let maxObject = maxObject {
+            object.id = maxObject.id + 1
+        } else {
+            object.id = 0
+        }
+       
         contents.append(object)
     }
     

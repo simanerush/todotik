@@ -14,15 +14,14 @@ struct EssenceToDoView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(toDoList.contents) { object in
-                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $toDoList.contents[object.id]).navigationBarTitle("", displayMode: .inline)) {
-                            VStack(alignment: .leading) {
-                                Text(object.content)
-                                Text(object.dateFormatted())
+                ForEach($toDoList.contents) { $object in
+                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
+                        VStack(alignment: .leading) {
+                            Text(object.content)
+                            Text(object.dateFormatted())
                         }
                     }
                 }
-                
                 .onDelete { indexSet in
                     toDoList.contents.remove(atOffsets: indexSet)
                 }
