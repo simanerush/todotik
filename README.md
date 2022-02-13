@@ -1,2 +1,2 @@
-# Essence To Do
-Official repository of Essence To Do app.
+# Todotik
+Official repository of Todotik app.
