@@ -26,10 +26,11 @@ struct EssenceToDoView: View {
                     toDoList.contents.remove(atOffsets: indexSet)
                 }
                 
-            } .navigationTitle(toDoList.name)
-                .toolbar {
-                    Button {
-                        @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
+            }
+            .navigationTitle(toDoList.name)
+            .toolbar {
+                Button {
+                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
                         toDoList.add(&newObject)
                     } label: {
                         Label("New", systemImage: "plus")
