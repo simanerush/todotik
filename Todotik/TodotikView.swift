@@ -1,15 +1,24 @@
 //
-//  EssenceToDoView.swift
-//  EssenceToDo
+//  TodotikView.swift
+//  Todotik
 //
 //  Created by Serafima Nerush on 1/22/22.
 //
 
 import SwiftUI
 
-struct EssenceToDoView: View {
+struct TodotikView: View {
     
-    @ObservedObject var toDoList: EssenceToDo
+    @ObservedObject var toDoList: Todotik
+    
+    init(toDoList: Todotik) {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "FiraCode-Bold", size: 40)!]
+        
+        self.toDoList = toDoList
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        //UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 20)!]
+    }
     
     var body: some View {
         NavigationView {
@@ -18,8 +27,8 @@ struct EssenceToDoView: View {
                     NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
                         VStack(alignment: .leading) {
                             Text(object.content)
-                            Text(object.dateFormatted())
-                        }
+                            Text("Due \(object.dateFormatted())").foregroundColor(.gray)
+                        }.font(FontAshot.commonFont(fontSize: 16))
                     }
                 }
                 .onDelete { indexSet in
@@ -27,7 +36,7 @@ struct EssenceToDoView: View {
                 }
                 
             }
-            .navigationTitle(toDoList.name)
+            .navigationBarTitle(Text(toDoList.name).font(.subheadline), displayMode: .large)
             .toolbar {
                 Button {
                     @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
@@ -70,9 +79,9 @@ struct EssenceToDoView: View {
 
 
 
-struct EssenceToDoView_Previews: PreviewProvider {
+struct TodotikView_Previews: PreviewProvider {
     static var previews: some View {
-        EssenceToDoView(toDoList: EssenceToDo(named: "Preview"))
+        TodotikView(toDoList: Todotik(named: "Preview"))
     }
 }
 

@@ -1,13 +1,13 @@
 //
 //  EssenceTodo.swift
-//  EssenceToDo
+//  Todotik
 //
 //  Created by Serafima Nerush on 1/24/22.
 //
 
 import SwiftUI
 
-class EssenceToDo: ObservableObject {
+class Todotik: ObservableObject {
     
     let name: String
     

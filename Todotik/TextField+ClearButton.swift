@@ -14,13 +14,11 @@ struct TextFieldClearButton: ViewModifier {
         HStack {
             content
             if !text.isEmpty {
-                Button(
-                    action: { self.text = "" },
-                    label: {
-                        Image(systemName: "multiply.circle.fill")
-                            .foregroundColor(Color(UIColor.opaqueSeparator))
-                    }
-                )
+                Button { self.text = "" }
+                label: {
+                    Image(systemName: "multiply.circle.fill")
+                        .foregroundColor(Color(UIColor.opaqueSeparator))
+                }
             }
         }
     }
