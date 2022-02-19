@@ -13,11 +13,15 @@ struct ToDo: Codable {
     
     struct ToDoObject: Identifiable, Codable {
         var content: String
-        var date: Date
+        var date: Date?
         var id: Int
         
         func dateFormatted() -> String {
-            return self.date.formatted()
+            if let date = date {
+                return "Due \(date.formatted())"
+            } else {
+                return ""
+            }
         }
     }
     

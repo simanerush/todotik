@@ -27,7 +27,7 @@ struct TodotikView: View {
                     NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
                         VStack(alignment: .leading) {
                             Text(object.content)
-                            Text("Due \(object.dateFormatted())").foregroundColor(.gray)
+                            Text(object.dateFormatted()).foregroundColor(.gray)
                         }.font(FontAshot.commonFont(fontSize: 16))
                     }
                 }
@@ -39,7 +39,7 @@ struct TodotikView: View {
             .navigationBarTitle(Text(toDoList.name).font(.subheadline), displayMode: .large)
             .toolbar {
                 Button {
-                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: .now, id: 0)
+                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: nil, id: 0)
                         toDoList.add(&newObject)
                     } label: {
                         Label("New", systemImage: "plus")
@@ -69,9 +69,23 @@ struct TodotikView: View {
             }
         }
         
+        @ViewBuilder
         var dateSection: some View {
-            Section(header: Text("Date Due")) {
-                DatePicker("Date", selection: $objectToEdit.date, displayedComponents: [.date])
+            if objectToEdit.date != nil {
+                HStack {
+                    Section(header: Text("Date Due")) {
+                        DatePicker("Date", selection: Binding($objectToEdit.date)!, displayedComponents: [.date])
+                    }
+                    Button {
+                        objectToEdit.date = nil
+                    } label: {
+                        Image(systemName: "minus.circle.fill").foregroundColor(.accentColor)
+                    }
+                }
+            } else {
+                Button("Add due date") {
+                    objectToEdit.date = .now
+                }
             }
         }
     }
