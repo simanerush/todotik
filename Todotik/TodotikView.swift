@@ -10,6 +10,7 @@ import SwiftUI
 struct TodotikView: View {
     
     @ObservedObject var toDoList: Todotik
+    @State private var showingSheet = false
     
     init(toDoList: Todotik) {
         //Use this if NavigationBarTitle is with Large Font
@@ -39,10 +40,12 @@ struct TodotikView: View {
             .navigationBarTitle(Text(toDoList.name).font(.subheadline), displayMode: .large)
             .toolbar {
                 Button {
-                    @State var newObject = ToDo.ToDoObject(content: "New ToDo", date: nil, id: 0)
-                        toDoList.add(&newObject)
+                    showingSheet.toggle()
                     } label: {
                         Label("New", systemImage: "plus")
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        AddToDoView(todoList: toDoList)
                     }
                 }
         }
