@@ -37,7 +37,7 @@ struct TodotikView: View {
                 }
                 
             }
-            .navigationBarTitle(Text(toDoList.name).font(.subheadline), displayMode: .large)
+            .navigationBarTitle(Text(toDoList.name).font(.subheadline))
             .toolbar {
                 Button {
                     showingSheet.toggle()
