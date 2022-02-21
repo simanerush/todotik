@@ -18,7 +18,7 @@ struct ToDo: Codable {
         
         func dateFormatted() -> String {
             if let date = date {
-                return "Due \(date.formatted())"
+                return "Due \(date.formatted(date: .complete, time: .omitted))".replacingOccurrences(of: "2022", with: "", options: [.caseInsensitive, .regularExpression])
             } else {
                 return ""
             }
