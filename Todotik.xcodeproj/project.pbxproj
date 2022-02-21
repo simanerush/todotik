@@ -68,6 +68,16 @@
 			path = FontAshot;
 			sourceTree = "<group>";
 		};
+		236796DE27C3FC630040899A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2354EED227C3576C002FAEF0 /* Date+Minus.swift */,
+				23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */,
+				234B49AA27C03CA20067C98A /* FontAshot.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		23CA6930279D2AB0001F5D24 = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +103,8 @@
 				23DF8044279F256400440AEB /* Todotik.swift */,
 				23CA693E279D2AB0001F5D24 /* TodotikView.swift */,
 				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
-				2354EED227C3576C002FAEF0 /* Date+Minus.swift */,
-				23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */,
-				234B49AA27C03CA20067C98A /* FontAshot.swift */,
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
+				236796DE27C3FC630040899A /* Extensions */,
 				234B49AC27C03D580067C98A /* FontAshot */,
 				23CA6942279D2AB1001F5D24 /* Preview Content */,
 			);
