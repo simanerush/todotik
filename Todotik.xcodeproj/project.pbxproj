@@ -13,6 +13,7 @@
 		233510C627C04D000057C4F0 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233510C127C04D000057C4F0 /* FiraCode-Regular.ttf */; };
 		233510C727C04D000057C4F0 /* FiraCode-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233510C227C04D000057C4F0 /* FiraCode-SemiBold.ttf */; };
 		234B49AB27C03CA20067C98A /* FontAshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B49AA27C03CA20067C98A /* FontAshot.swift */; };
+		2354EED327C3576C002FAEF0 /* Date+Minus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354EED227C3576C002FAEF0 /* Date+Minus.swift */; };
 		23CA693D279D2AB0001F5D24 /* TodotikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693C279D2AB0001F5D24 /* TodotikApp.swift */; };
 		23CA693F279D2AB0001F5D24 /* TodotikView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693E279D2AB0001F5D24 /* TodotikView.swift */; };
 		23CA6941279D2AB1001F5D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CA6940279D2AB1001F5D24 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		233510C127C04D000057C4F0 /* FiraCode-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Regular.ttf"; sourceTree = "<group>"; };
 		233510C227C04D000057C4F0 /* FiraCode-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-SemiBold.ttf"; sourceTree = "<group>"; };
 		234B49AA27C03CA20067C98A /* FontAshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontAshot.swift; sourceTree = "<group>"; };
+		2354EED227C3576C002FAEF0 /* Date+Minus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Minus.swift"; sourceTree = "<group>"; };
 		23CA6939279D2AB0001F5D24 /* Todotik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todotik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CA693C279D2AB0001F5D24 /* TodotikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodotikApp.swift; sourceTree = "<group>"; };
 		23CA693E279D2AB0001F5D24 /* TodotikView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodotikView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				23DF8044279F256400440AEB /* Todotik.swift */,
 				23CA693E279D2AB0001F5D24 /* TodotikView.swift */,
 				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
+				2354EED227C3576C002FAEF0 /* Date+Minus.swift */,
 				23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */,
 				234B49AA27C03CA20067C98A /* FontAshot.swift */,
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
@@ -187,6 +190,7 @@
 				23DFBC5E27BA30D1006BC799 /* TextField+ClearButton.swift in Sources */,
 				234B49AB27C03CA20067C98A /* FontAshot.swift in Sources */,
 				23F9286A27C0BD11004B1BDD /* TodotikListView.swift in Sources */,
+				2354EED327C3576C002FAEF0 /* Date+Minus.swift in Sources */,
 				23DF8043279F255500440AEB /* ToDo.swift in Sources */,
 				23CA693F279D2AB0001F5D24 /* TodotikView.swift in Sources */,
 				23F9286C27C0C646004B1BDD /* AddToDoView.swift in Sources */,

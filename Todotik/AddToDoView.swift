@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct AddToDoView: View {
     
@@ -18,6 +19,49 @@ struct AddToDoView: View {
         var newTodo = ToDo.ToDoObject(content: content, date: date, id: 0)
         todoList.add(&newTodo)
         presentationMode.wrappedValue.dismiss()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("Todotik all set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if let date = date {
+            let content = UNMutableNotificationContent()
+            content.title = self.content
+            content.subtitle = "Make Todotik happy!!!"
+            content.sound = UNNotificationSound.default
+            
+            // Configure the recurring date.
+            var dateComponents = DateComponents()
+            dateComponents.calendar = Calendar.current
+            let weekday = Calendar.current.component(.weekday, from: date)
+            let hour = Calendar.current.component(.hour, from: date)
+            let minute = Calendar.current.component(.minute, from: date)
+            
+            dateComponents.weekday = weekday
+            dateComponents.hour = hour
+            dateComponents.minute = minute
+            
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(
+                dateMatching: dateComponents, repeats: false)
+            
+            // Create the request
+            let uuidString = UUID().uuidString
+            let request = UNNotificationRequest(identifier: uuidString,
+                                                content: content, trigger: trigger)
+            
+            
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
+            }
+        }
     }
     
     func dismiss() {
