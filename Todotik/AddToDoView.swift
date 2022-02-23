@@ -14,6 +14,16 @@ struct AddToDoView: View {
     @Environment(\.presentationMode) private var presentationMode
     @State private var content = ""
     @State private var date: Date? = nil
+    @State private var notificationDate = Date()
+    @State private var notificationSectionDisplayed = false
+    @State private var notificationAdded = false
+    
+    let dateRange: ClosedRange<Date> = {
+        let calendar = Calendar.current
+        let startComponents = DateComponents(year: 2022, month: 1, day: 1)
+        let endComponents = DateComponents(year: 2122, month: 12, day: 31)
+        return calendar.date(from:startComponents)!...calendar.date(from:endComponents)!
+    }()
     
     func addNewTodo() {
         var newTodo = ToDo.ToDoObject(content: content, date: date, id: 0)
@@ -24,42 +34,6 @@ struct AddToDoView: View {
                 print("Todotik all set!")
             } else if let error = error {
                 print(error.localizedDescription)
-            }
-        }
-        
-        if let date = date {
-            let content = UNMutableNotificationContent()
-            content.title = self.content
-            content.subtitle = "Make Todotik happy!!!"
-            content.sound = UNNotificationSound.default
-            
-            // Configure the recurring date.
-            var dateComponents = DateComponents()
-            dateComponents.calendar = Calendar.current
-            let weekday = Calendar.current.component(.weekday, from: date)
-            let hour = Calendar.current.component(.hour, from: date)
-            let minute = Calendar.current.component(.minute, from: date)
-            
-            dateComponents.weekday = weekday
-            dateComponents.hour = hour
-            dateComponents.minute = minute
-            
-            // Create the trigger as a repeating event.
-            let trigger = UNCalendarNotificationTrigger(
-                dateMatching: dateComponents, repeats: false)
-            
-            // Create the request
-            let uuidString = UUID().uuidString
-            let request = UNNotificationRequest(identifier: uuidString,
-                                                content: content, trigger: trigger)
-            
-            
-            // Schedule the request with the system.
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.add(request) { (error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                }
             }
         }
     }
@@ -73,6 +47,8 @@ struct AddToDoView: View {
             nameSection
             dateSection
             submitSection
+            notificationButton
+            notificationSection
         }
         
     }
@@ -89,13 +65,9 @@ struct AddToDoView: View {
     var dateSection: some View {
         if date != nil {
             HStack {
+                
                 Section(header: Text("Date Due")) {
-                    DatePicker("Date", selection: Binding($date)!, displayedComponents: [.date])
-                }
-                Button {
-                    date = nil
-                } label: {
-                    Image(systemName: "minus.circle.fill").foregroundColor(.accentColor)
+                    DatePicker("Date", selection: Binding($date)!, in: dateRange, displayedComponents: [.date])
                 }
             }
         } else {
@@ -110,6 +82,77 @@ struct AddToDoView: View {
             Text("Add New Todo")
         }
         .disabled(content.isEmpty)
+    }
+    
+    @ViewBuilder
+    var notificationButton: some View {
+        if !notificationSectionDisplayed {
+            Button {
+                notificationSectionDisplayed.toggle()
+            } label: {
+                Text("Add Notification")
+            }
+        }
+        
+    }
+    
+    func addNotification(from notificationDate: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = self.content
+        content.subtitle = "Make Todotik happy!!!"
+        content.sound = UNNotificationSound.default
+        
+        // Configure the recurring date.
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+        let weekday = Calendar.current.component(.weekday, from: notificationDate)
+        let hour = Calendar.current.component(.hour, from: notificationDate)
+        let minute = Calendar.current.component(.minute, from: notificationDate)
+        
+        dateComponents.weekday = weekday
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        // Create the trigger as a repeating event.
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: dateComponents, repeats: false)
+        
+        // Create the request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                                            content: content, trigger: trigger)
+        
+        
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    var notificationSection: some View {
+        if notificationSectionDisplayed && !notificationAdded{
+            VStack {
+                DatePicker(
+                    "Start Date",
+                    selection: $notificationDate,
+                    in: dateRange,
+                    displayedComponents: [.date, .hourAndMinute]
+                )
+                Button {
+                    addNotification(from: notificationDate)
+                    notificationAdded.toggle()
+                } label: {
+                    Text("Schedule Notification")
+                }
+            }
+ 
+        } else if notificationAdded {
+            Text("Notification Scheduled at \(notificationDate.formatted())")
+        }
     }
 }
 
