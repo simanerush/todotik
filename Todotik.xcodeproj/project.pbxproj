@@ -21,7 +21,6 @@
 		23DF8043279F255500440AEB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8042279F255500440AEB /* ToDo.swift */; };
 		23DF8045279F256400440AEB /* Todotik.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8044279F256400440AEB /* Todotik.swift */; };
 		23DFBC5E27BA30D1006BC799 /* TextField+ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */; };
-		23F9286A27C0BD11004B1BDD /* TodotikListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9286927C0BD11004B1BDD /* TodotikListView.swift */; };
 		23F9286C27C0C646004B1BDD /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9286B27C0C646004B1BDD /* AddToDoView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		23DF8042279F255500440AEB /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		23DF8044279F256400440AEB /* Todotik.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todotik.swift; sourceTree = "<group>"; };
 		23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+ClearButton.swift"; sourceTree = "<group>"; };
-		23F9286927C0BD11004B1BDD /* TodotikListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodotikListView.swift; sourceTree = "<group>"; };
 		23F9286B27C0C646004B1BDD /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,7 +97,6 @@
 			children = (
 				23CA693C279D2AB0001F5D24 /* TodotikApp.swift */,
 				23DF8042279F255500440AEB /* ToDo.swift */,
-				23F9286927C0BD11004B1BDD /* TodotikListView.swift */,
 				23DF8044279F256400440AEB /* Todotik.swift */,
 				23CA693E279D2AB0001F5D24 /* TodotikView.swift */,
 				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
@@ -197,7 +194,6 @@
 				23DF8045279F256400440AEB /* Todotik.swift in Sources */,
 				23DFBC5E27BA30D1006BC799 /* TextField+ClearButton.swift in Sources */,
 				234B49AB27C03CA20067C98A /* FontAshot.swift in Sources */,
-				23F9286A27C0BD11004B1BDD /* TodotikListView.swift in Sources */,
 				2354EED327C3576C002FAEF0 /* Date+Minus.swift in Sources */,
 				23DF8043279F255500440AEB /* ToDo.swift in Sources */,
 				23CA693F279D2AB0001F5D24 /* TodotikView.swift in Sources */,
