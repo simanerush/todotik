@@ -56,7 +56,6 @@ struct AddToDoView: View {
     var nameSection: some View {
         Section(header: Text("New To-Do")) {
             TextField("Contents", text: $content)
-                .modifier(TextFieldClearButton(text: $content))
                 .multilineTextAlignment(.leading)
         }
     }
@@ -134,7 +133,7 @@ struct AddToDoView: View {
     
     @ViewBuilder
     var notificationSection: some View {
-        if notificationSectionDisplayed && !notificationAdded{
+        if notificationSectionDisplayed && !notificationAdded {
             VStack {
                 DatePicker(
                     "Start Date",

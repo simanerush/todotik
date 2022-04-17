@@ -22,7 +22,6 @@ struct ToDoObjectEditor: View {
     var nameSection: some View {
         Section(header: Text("New To-Do")) {
             TextField("Contents", text: $objectToEdit.content)
-                .modifier(TextFieldClearButton(text: $objectToEdit.content))
                 .multilineTextAlignment(.leading)
         }
     }
