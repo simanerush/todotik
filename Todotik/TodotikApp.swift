@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct TodotikApp: App {
-    let todo = Todotik(named: "To Do Name")
+    let todo = Todotik(named: "Todotik")
     var body: some Scene {
         WindowGroup {
             TodotikView(toDoList: todo)

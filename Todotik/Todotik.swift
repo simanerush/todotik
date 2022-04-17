@@ -55,6 +55,7 @@ class Todotik: ObservableObject {
     func add(_ object: inout ToDo.ToDoObject) {
         model.add(&object)
     }
+    
 //
 //    func remove(at index: Int) {
 //        model.remove(at: index)

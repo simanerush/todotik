@@ -12,6 +12,16 @@ struct TodotikView: View {
     
     @ObservedObject var toDoList: Todotik
     @State private var showingSheet = false
+    @State private var textField = ""
+    @State private var date: Date? = nil
+    @State private var notificationDate = Date()
+    let dateRange: ClosedRange<Date> = {
+        let calendar = Calendar.current
+        let startComponents = DateComponents(year: 2022, month: 1, day: 1)
+        let endComponents = DateComponents(year: 2122, month: 12, day: 31)
+        return calendar.date(from:startComponents)!...calendar.date(from:endComponents)!
+    }()
+    
     
     init(toDoList: Todotik) {
         //Use this if NavigationBarTitle is with Large Font
@@ -24,72 +34,33 @@ struct TodotikView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach($toDoList.contents) { $object in
-                    NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
-                        VStack(alignment: .leading) {
-                            Text(object.content)
-                            Text(object.dateFormatted()).foregroundColor(.gray)
-                        }.font(FontAshot.commonFont(fontSize: 16))
-                    }
-                }
-                .onDelete { indexSet in
-                    toDoList.contents.remove(atOffsets: indexSet)
-                }
-                
-            }
-            .navigationBarTitle(Text(toDoList.name).font(.subheadline))
-            .toolbar {
-                Button {
-                    showingSheet.toggle()
-                    } label: {
-                        Label("New", systemImage: "plus")
-                    }
-                    .sheet(isPresented: $showingSheet) {
-                        AddToDoView(todoList: toDoList)
-                    }
-                }
-        }
-        
-    }
-    
-    struct ToDoObjectEditor: View {
-        
-        @Binding var objectToEdit: ToDo.ToDoObject
-        
-        var body: some View {
-            Form {
-                nameSection
-                dateSection
-            }
-            
-        }
-        
-        var nameSection: some View {
-            Section(header: Text("New To-Do")) {
-                TextField("Contents", text: $objectToEdit.content)
-                    .modifier(TextFieldClearButton(text: $objectToEdit.content))
-                    .multilineTextAlignment(.leading)
-            }
-        }
-        
-        @ViewBuilder
-        var dateSection: some View {
-            if objectToEdit.date != nil {
+            VStack {
                 HStack {
-                    Section(header: Text("Date Due")) {
-                        DatePicker("Date", selection: Binding($objectToEdit.date)!, displayedComponents: [.date])
-                    }
+                    TextField("Hi", text: $textField)
                     Button {
-                        objectToEdit.date = nil
+                        if !textField.isEmpty {
+                            var newTodo = ToDo.ToDoObject(content: textField, date: date, id: 0)
+                            toDoList.add(&newTodo)
+                        }
                     } label: {
-                        Image(systemName: "minus.circle.fill").foregroundColor(.accentColor)
+                        Label("", systemImage: "plus")
                     }
                 }
-            } else {
-                Button("Add due date") {
-                    objectToEdit.date = .now
-                }
+                List {
+                    ForEach($toDoList.contents) { $object in
+                        NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
+                            VStack(alignment: .leading) {
+                                Text(object.content)
+                                Text(object.dateFormatted()).foregroundColor(.gray)
+                            }.font(FontAshot.commonFont(fontSize: 16))
+                        }
+                    }
+                    .onDelete { indexSet in
+                        toDoList.contents.remove(atOffsets: indexSet)
+                    }
+                    
+                    
+                }.navigationTitle(Text(toDoList.name).font(.subheadline))
             }
         }
     }

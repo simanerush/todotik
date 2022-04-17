@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		233510C527C04D000057C4F0 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233510C027C04D000057C4F0 /* FiraCode-Bold.ttf */; };
 		233510C627C04D000057C4F0 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233510C127C04D000057C4F0 /* FiraCode-Regular.ttf */; };
 		233510C727C04D000057C4F0 /* FiraCode-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233510C227C04D000057C4F0 /* FiraCode-SemiBold.ttf */; };
+		2339FA72280BB9C7008E7825 /* ToDoObjectEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2339FA71280BB9C7008E7825 /* ToDoObjectEditor.swift */; };
 		234B49AB27C03CA20067C98A /* FontAshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B49AA27C03CA20067C98A /* FontAshot.swift */; };
 		2354EED327C3576C002FAEF0 /* Date+Minus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354EED227C3576C002FAEF0 /* Date+Minus.swift */; };
 		23CA693D279D2AB0001F5D24 /* TodotikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693C279D2AB0001F5D24 /* TodotikApp.swift */; };
@@ -30,6 +31,7 @@
 		233510C027C04D000057C4F0 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
 		233510C127C04D000057C4F0 /* FiraCode-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Regular.ttf"; sourceTree = "<group>"; };
 		233510C227C04D000057C4F0 /* FiraCode-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-SemiBold.ttf"; sourceTree = "<group>"; };
+		2339FA71280BB9C7008E7825 /* ToDoObjectEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoObjectEditor.swift; sourceTree = "<group>"; };
 		234B49AA27C03CA20067C98A /* FontAshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontAshot.swift; sourceTree = "<group>"; };
 		2354EED227C3576C002FAEF0 /* Date+Minus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Minus.swift"; sourceTree = "<group>"; };
 		23CA6939279D2AB0001F5D24 /* Todotik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todotik.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				23DF8042279F255500440AEB /* ToDo.swift */,
 				23DF8044279F256400440AEB /* Todotik.swift */,
 				23CA693E279D2AB0001F5D24 /* TodotikView.swift */,
+				2339FA71280BB9C7008E7825 /* ToDoObjectEditor.swift */,
 				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
 				236796DE27C3FC630040899A /* Extensions */,
@@ -152,7 +155,7 @@
 				};
 			};
 			buildConfigurationList = 23CA6934279D2AB0001F5D24 /* Build configuration list for PBXProject "Todotik" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -197,6 +200,7 @@
 				2354EED327C3576C002FAEF0 /* Date+Minus.swift in Sources */,
 				23DF8043279F255500440AEB /* ToDo.swift in Sources */,
 				23CA693F279D2AB0001F5D24 /* TodotikView.swift in Sources */,
+				2339FA72280BB9C7008E7825 /* ToDoObjectEditor.swift in Sources */,
 				23F9286C27C0C646004B1BDD /* AddToDoView.swift in Sources */,
 				23CA693D279D2AB0001F5D24 /* TodotikApp.swift in Sources */,
 			);
@@ -256,7 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -311,7 +315,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
