@@ -26,7 +26,7 @@ struct AddToDoView: View {
     }()
     
     func addNewTodo() {
-        var newTodo = ToDo.ToDoObject(content: content, date: date, id: 0)
+        var newTodo = ToDo.ToDoObject(content: content, date: date, id: 0, notifications: [])
         todoList.add(&newTodo)
         presentationMode.wrappedValue.dismiss()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in

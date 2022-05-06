@@ -15,6 +15,7 @@ struct ToDo: Codable {
         var content: String
         var date: Date?
         var id: Int
+        var notifications: [Date]
         
         func dateFormatted() -> String {
             if let date = date {

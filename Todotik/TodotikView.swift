@@ -39,7 +39,7 @@ struct TodotikView: View {
                     TextField("Hi", text: $textField)
                     Button {
                         if !textField.isEmpty {
-                            var newTodo = ToDo.ToDoObject(content: textField, date: date, id: 0)
+                            var newTodo = ToDo.ToDoObject(content: textField, date: date, id: 0, notifications: [])
                             toDoList.add(&newTodo)
                         }
                     } label: {

@@ -68,6 +68,14 @@
 			path = FontAshot;
 			sourceTree = "<group>";
 		};
+		2363BC6F2825029100DF5847 /* Just in case... */ = {
+			isa = PBXGroup;
+			children = (
+				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
+			);
+			path = "Just in case...";
+			sourceTree = "<group>";
+		};
 		236796DE27C3FC630040899A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +110,8 @@
 				23DF8044279F256400440AEB /* Todotik.swift */,
 				23CA693E279D2AB0001F5D24 /* TodotikView.swift */,
 				2339FA71280BB9C7008E7825 /* ToDoObjectEditor.swift */,
-				23F9286B27C0C646004B1BDD /* AddToDoView.swift */,
 				23CA6940279D2AB1001F5D24 /* Assets.xcassets */,
+				2363BC6F2825029100DF5847 /* Just in case... */,
 				236796DE27C3FC630040899A /* Extensions */,
 				234B49AC27C03D580067C98A /* FontAshot */,
 				23CA6942279D2AB1001F5D24 /* Preview Content */,
