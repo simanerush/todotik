@@ -24,12 +24,9 @@ struct TodotikView: View {
     
     
     init(toDoList: Todotik) {
-        //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "FiraCode-Bold", size: 40)!]
         
         self.toDoList = toDoList
-        //Use this if NavigationBarTitle is with displayMode = .inline
-        //UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 20)!]
     }
     
     var body: some View {
@@ -59,9 +56,8 @@ struct TodotikView: View {
                     .onDelete { indexSet in
                         toDoList.contents.remove(atOffsets: indexSet)
                     }
-                    
-                    
-                }.navigationTitle(Text(toDoList.name).font(.subheadline))
+                }
+                .navigationTitle(Text(toDoList.name).font(.subheadline))
             }
         }
     }
