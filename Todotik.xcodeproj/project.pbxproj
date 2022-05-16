@@ -19,6 +19,13 @@
 		23CA693F279D2AB0001F5D24 /* TodotikView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CA693E279D2AB0001F5D24 /* TodotikView.swift */; };
 		23CA6941279D2AB1001F5D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CA6940279D2AB1001F5D24 /* Assets.xcassets */; };
 		23CA6944279D2AB1001F5D24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CA6943279D2AB1001F5D24 /* Preview Assets.xcassets */; };
+		23CC3A182832095900F98E61 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A172832095900F98E61 /* FirebaseAnalyticsSwift */; };
+		23CC3A1A2832095900F98E61 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A192832095900F98E61 /* FirebaseAuth */; };
+		23CC3A1C2832095900F98E61 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A1B2832095900F98E61 /* FirebaseDatabase */; };
+		23CC3A1E2832095900F98E61 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A1D2832095900F98E61 /* FirebaseDatabaseSwift */; };
+		23CC3A202832095900F98E61 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A1F2832095900F98E61 /* FirebaseDynamicLinks */; };
+		23CC3A222832095900F98E61 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A212832095900F98E61 /* FirebaseFirestoreSwift */; };
+		23CC3A242832095900F98E61 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 23CC3A232832095900F98E61 /* FirebaseStorage */; };
 		23DF8043279F255500440AEB /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8042279F255500440AEB /* ToDo.swift */; };
 		23DF8045279F256400440AEB /* Todotik.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF8044279F256400440AEB /* Todotik.swift */; };
 		23DFBC5E27BA30D1006BC799 /* TextField+ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DFBC5D27BA30D1006BC799 /* TextField+ClearButton.swift */; };
@@ -50,6 +57,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23CC3A1E2832095900F98E61 /* FirebaseDatabaseSwift in Frameworks */,
+				23CC3A1C2832095900F98E61 /* FirebaseDatabase in Frameworks */,
+				23CC3A182832095900F98E61 /* FirebaseAnalyticsSwift in Frameworks */,
+				23CC3A1A2832095900F98E61 /* FirebaseAuth in Frameworks */,
+				23CC3A242832095900F98E61 /* FirebaseStorage in Frameworks */,
+				23CC3A202832095900F98E61 /* FirebaseDynamicLinks in Frameworks */,
+				23CC3A222832095900F98E61 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +157,15 @@
 			dependencies = (
 			);
 			name = Todotik;
+			packageProductDependencies = (
+				23CC3A172832095900F98E61 /* FirebaseAnalyticsSwift */,
+				23CC3A192832095900F98E61 /* FirebaseAuth */,
+				23CC3A1B2832095900F98E61 /* FirebaseDatabase */,
+				23CC3A1D2832095900F98E61 /* FirebaseDatabaseSwift */,
+				23CC3A1F2832095900F98E61 /* FirebaseDynamicLinks */,
+				23CC3A212832095900F98E61 /* FirebaseFirestoreSwift */,
+				23CC3A232832095900F98E61 /* FirebaseStorage */,
+			);
 			productName = EssenceToDo;
 			productReference = 23CA6939279D2AB0001F5D24 /* Todotik.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +194,9 @@
 				Base,
 			);
 			mainGroup = 23CA6930279D2AB0001F5D24;
+			packageReferences = (
+				23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 23CA693A279D2AB0001F5D24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -417,6 +443,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23CC3A172832095900F98E61 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		23CC3A192832095900F98E61 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		23CC3A1B2832095900F98E61 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		23CC3A1D2832095900F98E61 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		23CC3A1F2832095900F98E61 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		23CC3A212832095900F98E61 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		23CC3A232832095900F98E61 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23CC3A162832095900F98E61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23CA6931279D2AB0001F5D24 /* Project object */;
 }
