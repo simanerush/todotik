@@ -35,18 +35,19 @@ struct TodotikView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    TextField("Hi", text: $textField)
-                    Button {
-                        if !textField.isEmpty {
-                            var newTodo = ToDo.ToDoObject(content: textField, date: date, id: 0, notifications: [])
-                            toDoList.add(&newTodo)
-                        }
-                    } label: {
-                        Label("", systemImage: "plus")
-                    }
-                }
                 List {
+                    HStack {
+                        TextField("New To-Do", text: $textField)
+                        Button {
+                            if !textField.isEmpty {
+                                var newTodo = ToDo.ToDoObject(content: textField, date: date, id: 0, notifications: [])
+                                toDoList.add(&newTodo)
+                                textField = ""
+                            }
+                        } label: {
+                            Label("", systemImage: "plus")
+                        }
+                    }
                     ForEach($toDoList.contents) { $object in
                         NavigationLink(destination: ToDoObjectEditor(objectToEdit: $object).navigationBarTitle("", displayMode: .inline)) {
                             VStack(alignment: .leading) {
