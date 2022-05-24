@@ -12,7 +12,7 @@ class Todotik: ObservableObject {
     let name: String
     
     static func createToDo() -> ToDo {
-        ToDo(contents: [ToDo.ToDoObject(content: "Test", date: .now, id: 0, notifications: [])])
+        ToDo(contents: [ToDo.ToDoObject(content: "My First To-Do", date: .now, id: 0, notifications: [])])
     }
     
     @Published private var model: ToDo = createToDo() {
@@ -56,11 +56,6 @@ class Todotik: ObservableObject {
         model.add(&object)
     }
     
-//
-//    func remove(at index: Int) {
-//        model.remove(at: index)
-//    }
-//
     func edit(_ object: ToDo.ToDoObject, newContent: String) {
         model.edit(object: object, newContent: newContent)
     }
